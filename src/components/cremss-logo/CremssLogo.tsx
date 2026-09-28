@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useId, useImperativeHandle, useLayoutEffect, useMemo, useRef, useState, type Ref } from "react";
-import styles from "./CremssLogo.module.css";
 import { playIntro, type IntroHandle } from "./intro";
 import { computeLayout, type LayoutMode } from "./layout";
 import { rigWater } from "./scene";
@@ -10,28 +9,28 @@ import wordmarkFile from "./svg/cremss-texte.svg?raw";
 // Exported from Figma, then optimised by `bun run svg`
 const glass = readSvg(glassFile);
 const wordmark = readSvg(wordmarkFile);
-// Created once: React re-injects the markup whenever this object changes, which would wipe the animation effects.
 const glassHtml = { __html: glass.markup };
 const wordmarkHtml = { __html: wordmark.markup };
 
-/** Below this width (px) of the space given to the logo, the wordmark goes under the glass. */
+const svgClass = [
+  "block h-auto w-full overflow-visible",
+  "[&_[data-part],&_[data-role]]:origin-center [&_[data-part],&_[data-role]]:[transform-box:fill-box]",
+  "[&_[data-part=sucre]]:origin-[50%_100%]! [&_[data-part=paille]]:origin-[73%_24%]!",
+  "[&_[data-role=fizz]_circle]:opacity-0",
+].join(" ");
+
 const STACK_BELOW = 560;
 
 export type CremssLogoHandle = {
-  /** Plays the intro again from the start. */
   replay: () => void;
 };
 
 export type CremssLogoProps = {
   ref?: Ref<CremssLogoHandle>;
-  /** Play the intro as soon as the logo is on screen. Defaults to `true`. */
   autoPlay?: boolean;
-  /** `"auto"` picks horizontal or stacked from the available width. */
   layout?: LayoutMode | "auto";
-  /** Called when the intro has played to the end. */
   onComplete?: () => void;
   className?: string;
-  /** Accessible name of the logo. */
   title?: string;
 };
 
@@ -54,7 +53,6 @@ export function CremssLogo({ ref, autoPlay = true, layout = "auto", onComplete, 
     onCompleteRef.current = onComplete;
   }, [onComplete]);
 
-  // Follow the space the logo actually gets, not the viewport, so it also works in a sidebar or a card.
   useEffect(() => {
     const root = rootRef.current;
     if (layout !== "auto" || !root) return;
@@ -101,7 +99,6 @@ export function CremssLogo({ ref, autoPlay = true, layout = "auto", onComplete, 
 
   useImperativeHandle(ref, () => ({ replay: play }), [play]);
 
-  // Layout effect so the first hidden frames of the intro are applied before the browser paints.
   useLayoutEffect(() => {
     if (autoPlay) play();
     else if (glassRef.current) rigWater(glassRef.current, clipId);
@@ -109,10 +106,10 @@ export function CremssLogo({ ref, autoPlay = true, layout = "auto", onComplete, 
   }, [autoPlay, play, clipId]);
 
   return (
-    <div ref={rootRef} className={className ? `${styles.root} ${className}` : styles.root}>
+    <div ref={rootRef} className={className ? `w-full ${className}` : "w-full"}>
       <svg
         ref={svgRef}
-        className={styles.svg}
+        className={svgClass}
         viewBox={lockup.viewBox.join(" ")}
         role="img"
         aria-label={title}
@@ -120,7 +117,6 @@ export function CremssLogo({ ref, autoPlay = true, layout = "auto", onComplete, 
       >
         <g transform={`translate(${lockup.glass.join(" ")})`}>
           <g data-role="glass-slide">
-            {/* The drawings are the files exported from Figma; the animation adds its effects inside. */}
             <g
               ref={glassRef}
               transform={`translate(${-glass.x} ${-glass.y})`}

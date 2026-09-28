@@ -1,14 +1,19 @@
-:root {
-  --ground: #fbe3d6;
-  --ground-glow: #fef4ee;
-  --ink: #1e3a3c;
-  --mint: #5db35a;
-  --blush-deep: #f5c9b5;
-}
+@import "tailwindcss";
 
-html,
-body {
-  margin: 0;
-  background: var(--ground);
-  color: var(--ink);
+@theme {
+  --color-ground: #fbe3d6;
+  --color-ground-glow: #fef4ee;
+  --color-ink: #1e3a3c;
+  --color-mint: #5db35a;
+  --color-blush-deep: #f5c9b5;
+
+  --duration-instant: 120ms;
+  --duration-standard: 200ms;
+  --duration-long: 320ms;
+  --duration-fall: 540ms;
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.3, 1);
+  --ease-in: cubic-bezier(0.55, 0, 0.9, 0.55);
+  --ease-soft: cubic-bezier(0.4, 0, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.3, 1.4, 0.6, 1);
 }
