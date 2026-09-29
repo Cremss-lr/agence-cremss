@@ -21,7 +21,7 @@ export function NotFoundPage() {
             </Button>
           </div>
         </div>
-        <div className="col-start-2 row-start-1 w-[24vw] max-w-28 self-end md:max-w-none md:self-center md:aspect-square md:w-[min(45%,35rem,calc(100dvh_-_11rem))]">
+        <div className="col-start-2 row-start-1 w-[24vw] max-w-28 self-end md:max-w-none md:self-center md:aspect-square md:w-[min(45%,35rem,calc(100dvh-11rem))]">
           <EmptyGlass />
         </div>
       </div>
