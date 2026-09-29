@@ -6,7 +6,7 @@ import { Button } from "../../components/button";
 export function SiteFooter() {
   return (
     <footer>
-      <Wave />
+      <Wave Wave="#1E3A3C" UpWave="#F2F1EE" BotWave="#FBE3D6" />
       <Logo />
       <Icon />
       <Button />
