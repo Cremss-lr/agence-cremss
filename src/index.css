@@ -6,6 +6,48 @@
   --color-ink: #1e3a3c;
   --color-mint: #5db35a;
   --color-blush-deep: #f5c9b5;
+  --color-white: #ffffff;
+  --color-coral: #ef5b4c;
+  --color-sugar: #e8bf78;
+  --color-lemon: #cde86a;
+  --color-mojito: #f0f4da;
+  --color-warm-gray: #f2f1ee;
+  --color-mint-hover: #4c9c4a;
+  --color-hint: #6b7a78;
+  --color-field-border: #e2dfd8;
+  --color-error: #c7392b;
+
+  --radius-small: 8px;
+  --radius-medium: 12px;
+  --radius-large: 16px;
+  --radius-pill: 999px;
+
+  --font-display: "Cherry Bomb One", sans-serif;
+  --font-body: "Inder", sans-serif;
+
+  --text-display: 72px;
+  --text-display--line-height: 1.1;
+  --text-title-1: 40px;
+  --text-title-1--line-height: 1.2;
+  --text-title-2: 28px;
+  --text-title-2--line-height: 1.3;
+  --text-accent: 20px;
+  --text-accent--line-height: 1.2;
+  --text-number: 16px;
+  --text-number--line-height: 20px;
+  --text-micro: 13px;
+  --text-micro--line-height: 1.5;
+  --text-micro--letter-spacing: 8%;
+  --text-body: 16px;
+  --text-body--line-height: 1.6;
+  --text-small: 13px;
+  --text-small--line-height: 1.5;
+  --text-btn-s: 14px;
+  --text-btn-s--line-height: 20px;
+  --text-btn-m: 16px;
+  --text-btn-m--line-height: 20px;
+  --text-btn-l: 18px;
+  --text-btn-l--line-height: 24px;
 
   --duration-instant: 120ms;
   --duration-standard: 200ms;
@@ -16,4 +58,10 @@
   --ease-in: cubic-bezier(0.55, 0, 0.9, 0.55);
   --ease-soft: cubic-bezier(0.4, 0, 0.3, 1);
   --ease-bounce: cubic-bezier(0.3, 1.4, 0.6, 1);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+  }
 }
