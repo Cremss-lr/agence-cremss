@@ -65,3 +65,10 @@
     font-family: var(--font-body);
   }
 }
+
+@media (min-width: 1024px) {
+  html {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+}

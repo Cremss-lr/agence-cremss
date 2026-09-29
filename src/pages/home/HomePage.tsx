@@ -1,3 +1,4 @@
+import { Scrollbar } from "../../components/scrollbar";
 import { MobileMenu } from "../../components/mobile-menu";
 import { Hero } from "../../sections/hero";
 import { Studio } from "../../sections/studio";
@@ -10,6 +11,7 @@ export function HomePage() {
   return (
     <main>
       <MobileMenu />
+      <Scrollbar />
       <Hero />
       <Studio />
       <Services />
