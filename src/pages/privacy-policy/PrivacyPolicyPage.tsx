@@ -1,5 +1,5 @@
 import { LegalPage } from "../../layouts/legal-page";
 
 export function PrivacyPolicyPage() {
-  return <LegalPage />;
+  return <LegalPage page="Confidentialite"/>;
 }
