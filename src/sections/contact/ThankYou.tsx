@@ -1,9 +1,8 @@
-import { Bubbles } from "../../components/bubbles";
+// import { Bubbles } from "../../components/bubbles";
 
 export function ThankYou() {
   return (
     <div>
-      <Bubbles />
     </div>
   );
 }

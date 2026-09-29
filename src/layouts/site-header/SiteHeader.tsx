@@ -1,13 +1,15 @@
 import { Logo } from "../../components/logo";
-import { Button } from "../../components/button";
 import { MobileMenu } from "../../components/mobile-menu";
 
-export function SiteHeader() {
+export function SiteHeader({ menu = true }: { menu?: boolean }) {
   return (
-    <header>
+    <header className="mx-auto mt-2 w-full md:mt-10 box-content flex h-16 max-w-300 items-center justify-between px-6">
       <Logo />
-      <Button />
-      <MobileMenu />
+      {menu && (
+        <div className="md:hidden">
+          <MobileMenu />
+        </div>
+      )}
     </header>
   );
 }
