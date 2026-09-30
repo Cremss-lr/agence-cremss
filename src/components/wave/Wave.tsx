@@ -1,14 +1,22 @@
 
-export function Wave({Wave, UpWave, BotWave}: {Wave?: string, UpWave?: string, BotWave?: string}) {
+type WaveProps = {
+  Wave?: string;
+  UpWave?: string;
+  BotWave?: string;
+};
+
+export function Wave({ Wave, UpWave, BotWave }: WaveProps) {
   return (
-    <section
-      className="relative min-h-[400px] overflow-hidden"
+    <div
+      aria-hidden="true"
+      className="relative min-h-[clamp(20rem,55vw,25rem)] overflow-hidden"
       style={{ backgroundColor: UpWave }}
     >
       <svg
-        className="absolute bottom-0 left-0 h-[100px] w-full"
+        className="absolute inset-x-0 bottom-0 h-[clamp(4rem,8vw,6.25rem)] w-full"
         viewBox="0 0 1440 100"
         preserveAspectRatio="none"
+        focusable="false"
       >
         {/* Remplissage du bas */}
         <path
@@ -35,10 +43,11 @@ export function Wave({Wave, UpWave, BotWave}: {Wave?: string, UpWave?: string, B
             C1330 55, 1380 60, 1440 40
           "
           fill="none"
-          stroke= {Wave}
+          stroke={Wave}
           strokeWidth="2.5"
+          vectorEffect="non-scaling-stroke"
         />
       </svg>
-    </section>
+    </div>
   );
 }
