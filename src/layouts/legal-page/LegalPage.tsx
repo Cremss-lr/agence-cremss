@@ -29,7 +29,9 @@ export function LegalPage({ page = "cgv" }: LegalPageProps) {
 
   return (
     <main className="min-h-screen bg-ground text-ink">
-      <SiteHeader />
+      <div className="w-full [&>header]:box-border">
+        <SiteHeader menu={false} />
+      </div>
 
       <section className="bg-warm-gray font-body">
         <div className="relative bg-ground">
