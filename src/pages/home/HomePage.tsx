@@ -25,9 +25,9 @@ export function HomePage() {
 
   return (
     <main>
-      <MobileMenu />
-      <Scrollbar />
-      <Hero />
+      <MobileMenu ready={ready} />
+      <Scrollbar ready={ready} />
+      <Hero ready={ready} onReady={() => setReady(true)} />
       <Studio />
       <Services />
       <Projects />
