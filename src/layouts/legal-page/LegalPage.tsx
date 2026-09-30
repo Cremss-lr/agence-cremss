@@ -1,5 +1,6 @@
 import { SiteHeader } from "../site-header";
 import { Wave } from "../../components/wave";
+import { Scrollbar } from "../../components/scrollbar";
 import { TableOfContents } from "./TableOfContents";
 import { Article } from "./Article";
 import { SiteFooter } from "../site-footer";
@@ -32,6 +33,7 @@ export function LegalPage({ page = "cgv" }: LegalPageProps) {
       <div className="w-full [&>header]:box-border">
         <SiteHeader menu={false} />
       </div>
+      <Scrollbar showSections={false} />
 
       <section className="bg-warm-gray font-body">
         <div className="relative bg-ground">

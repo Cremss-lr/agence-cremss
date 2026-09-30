@@ -11,7 +11,7 @@ export function HomePage() {
   return (
     <main>
       <MobileMenu />
-      <Scrollbar />
+      <Scrollbar showSections={true} />
       <Hero />
       <Studio />
       <Services />
