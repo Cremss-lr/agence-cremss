@@ -28,18 +28,18 @@ export function LegalPage({ page = "cgv" }: LegalPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-[#FBE3D6] text-ink">
+    <main className="min-h-screen bg-ground text-ink">
       <SiteHeader />
 
-      <section className="bg-[#F2F1EE] font-body">
-        <div className="relative bg-[#FBE3D6]">
+      <section className="bg-warm-gray font-body">
+        <div className="relative bg-ground">
           <Wave Wave="#1E3A3C" UpWave="#FBE3D6" BotWave="#F2F1EE" />
 
           <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto w-full max-w-6xl px-6 pt-16 sm:px-10 sm:pt-20 lg:px-12 lg:pt-24">
             <p className="mb-5 font-display text-[0.68rem] uppercase tracking-[0.16em]">
               Informations légales
             </p>
-            <h1 className="max-w-5xl font-display text-4xl leading-[1.05] tracking-[-0.025em] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-5xl font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
               {title}
             </h1>
             <p className="mt-4 text-xs sm:text-sm">
@@ -53,7 +53,7 @@ export function LegalPage({ page = "cgv" }: LegalPageProps) {
             <TableOfContents page={page} />
           </aside>
 
-          <div className="rounded-2xl bg-white px-6 py-8 shadow-[0_1px_2px_rgba(30,58,60,0.03)] sm:px-10 sm:py-10 lg:px-14 lg:py-12 [&>article]:text-sm [&>article]:leading-6 [&>article>p:first-child]:mb-12 [&>article>p:first-child]:rounded-xl [&>article>p:first-child]:bg-[#FBE3D6] [&>article>p:first-child]:px-5 [&>article>p:first-child]:py-4 [&>article>p:first-child]:text-xs [&>article_h2]:font-display [&>article_h2]:font-normal [&>article_h2]:text-xl [&>article_h2]:leading-tight">
+          <div className="rounded-2xl bg-white px-6 py-8 shadow-[0_1px_2px_rgba(30,58,60,0.03)] sm:px-10 sm:py-10 lg:px-14 lg:py-12 [&>article]:text-sm [&>article]:leading-6 [&>article>p:first-child]:mb-12 [&>article>p:first-child]:rounded-xl [&>article>p:first-child]:bg-ground [&>article>p:first-child]:px-5 [&>article>p:first-child]:py-4 [&>article>p:first-child]:text-xs [&>article_h2]:font-display [&>article_h2]:font-normal [&>article_h2]:text-xl [&>article_h2]:leading-tight">
             <Article page={page} />
           </div>
         </div>
