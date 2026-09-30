@@ -35,7 +35,7 @@ export function MobileMenu() {
       
       {isOpen && (
         <RemoveScroll>
-          <div id="mobile-navigation" className="fixed inset-0 z-50 flex min-h-dvh w-screen flex-col bg-ground-glow px-3 pb-3 pt-2">
+          <div id="mobile-navigation" className="fixed inset-0 z-50 flex min-h-dvh w-screen flex-col bg-ground px-3 pb-3 pt-2">
             <div className="flex items-center justify-between">
               <img className="h-auto w-[35%] translate-x-2" src={cremss} alt="Cremss" />
               <Button
@@ -56,7 +56,10 @@ export function MobileMenu() {
             <div
                 className="flex flex-1 items-center justify-center [&_a]:flex [&_a]:items-center [&_a]:gap-2 [&_a]:font-bold [&_a]:text-ink [&_a]:before:text-xl [&_a]:before:content-['○'] [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-4"
             >
-              <Navigation onNavigate={() => setIsOpen(false)} />
+              <Navigation
+                className="font-display text-4xl"
+                onNavigate={() => setIsOpen(false)}
+              />
             </div>
           </div>
         </RemoveScroll>

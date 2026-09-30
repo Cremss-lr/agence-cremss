@@ -1,28 +1,17 @@
-import { Link } from "react-scroll";
-
 type NavigationProps = {
   onNavigate?: () => void;
+  className?: string;
 };
 
-export function Navigation({ onNavigate }: NavigationProps) {
+export function Navigation({ onNavigate, className }: NavigationProps) {
   return (
-    <nav className="font-display text-4xl">
+    <nav className={className}>
       <ul>
-        <li>
-          <Link to="hero" smooth={true} duration={500} onClick={onNavigate}>Accueil</Link>
-          </li>
-          <li>
-            <Link to="studio" smooth={true} duration={500} onClick={onNavigate}>Studio</Link>
-          </li>
-          <li>
-            <Link to="services" smooth={true} duration={500} onClick={onNavigate}>Services</Link>
-          </li>
-          <li>
-            <Link to="realisations" smooth={true} duration={500} onClick={onNavigate}>Réalisations</Link>
-          </li>
-          <li>
-            <Link to="contact" smooth={true} duration={500} onClick={onNavigate}>Contact</Link>
-          </li>
+        <li><a href="/#accueil" onClick={onNavigate}>Accueil</a></li>
+        <li><a href="/#studio" onClick={onNavigate}>Studio</a></li>
+        <li><a href="/#services" onClick={onNavigate}>Services</a></li>
+        <li><a href="/#realisations" onClick={onNavigate}>Réalisations</a></li>
+        <li><a href="/#contact" onClick={onNavigate}>Contact</a></li>
       </ul>
     </nav>
   );
