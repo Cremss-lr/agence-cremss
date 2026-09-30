@@ -4,9 +4,9 @@ import { Icon } from "../../components/icon";
 
 const WAVE = "M0 45C160 70 300 40 450 55C620 75 680 85 850 65C1030 45 1080 15 1240 40C1330 55 1380 60 1440 40";
 
-type HeroProps = { ready: boolean; onReady: () => void };
+type HeroProps = { ready: boolean; onReady: () => void; skipIntro?: boolean };
 
-export function Hero({ ready, onReady }: HeroProps) {
+export function Hero({ ready, onReady, skipIntro = false }: HeroProps) {
   const reveal = `transition-[opacity,translate] duration-[900ms] ease-out ${ready ? "opacity-100" : "translate-y-4 opacity-0"}`;
   const delay = (ms: number) => ({ transitionDelay: `${ms}ms` });
 
@@ -16,7 +16,7 @@ export function Hero({ ready, onReady }: HeroProps) {
       className="relative isolate box-border grid min-h-dvh grid-rows-[1fr_auto] items-center justify-items-center gap-6 overflow-hidden px-[clamp(16px,5vw,64px)] pt-12 pb-32"
     >
       <div className="relative w-[min(100%,1060px)]">
-        <CremssLogo onComplete={onReady} />
+        <CremssLogo autoPlay={!skipIntro} onComplete={onReady} />
         <p
           className={`mt-2 text-center font-display text-accent text-ink min-[624px]:absolute min-[624px]:top-[80%] min-[624px]:left-[23.3%] min-[624px]:mt-0 min-[624px]:text-left min-[624px]:text-[clamp(20px,3.2vw,40px)] ${reveal}`}
           style={delay(0)}

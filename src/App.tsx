@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router";
+import { useLayoutEffect } from "react";
+import { Route, Routes, useLocation } from "react-router";
 import { HomePage } from "./pages/home";
 import { TermsOfSalePage } from "./pages/terms-of-sale";
 import { DemoPage } from "./pages/demo";
@@ -7,6 +8,12 @@ import { NotFoundPage } from "./pages/not-found";
 import { PrivacyPolicyPage } from "./pages/privacy-policy";
 
 function App() {
+  const { pathname, hash } = useLocation();
+
+  useLayoutEffect(() => {
+    if (!hash) window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname, hash]);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />

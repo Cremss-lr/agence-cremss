@@ -30,9 +30,7 @@ export function LegalPage({ page = "cgv" }: LegalPageProps) {
 
   return (
     <main className="min-h-screen bg-ground text-ink">
-      <div className="w-full [&>header]:box-border">
-        <SiteHeader menu={false} />
-      </div>
+      <SiteHeader />
       <Scrollbar showSections={false} />
 
       <section className="bg-warm-gray font-body">
@@ -52,7 +50,7 @@ export function LegalPage({ page = "cgv" }: LegalPageProps) {
           </div>
         </div>
 
-        <div className="mx-auto grid w-full max-w-6xl items-start gap-6 px-4 pb-16 pt-8 sm:gap-8 sm:px-8 sm:pb-24 sm:pt-12 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-16 lg:px-12 lg:pb-32 lg:pt-16">
+        <div className="mx-auto grid w-full max-w-6xl items-start gap-6 px-4 pb-8 pt-8 sm:gap-8 sm:px-8 sm:pt-12 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-16 lg:px-12 lg:pt-16">
           <aside className="hidden lg:sticky lg:top-8 lg:block [&_h2]:font-display [&_h2]:font-normal [&_h2]:text-[0.68rem] [&_li]:pb-4 [&_a]:text-xs">
             <TableOfContents page={page} />
           </aside>
@@ -61,6 +59,8 @@ export function LegalPage({ page = "cgv" }: LegalPageProps) {
             <Article page={page} />
           </div>
         </div>
+
+        <Wave compact Wave="#1E3A3C" UpWave="#F2F1EE" BotWave="#FBE3D6" />
       </section>
 
       <SiteFooter />

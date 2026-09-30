@@ -23,7 +23,7 @@ export function MobileMenu({ ready = true }: { ready?: boolean }) {
           aria-hidden={!isOpen}
           className={`fixed inset-0 z-0 flex min-h-dvh w-screen items-center justify-center bg-ground transition-[opacity,visibility] duration-long ease-out [&_a]:flex [&_a]:items-center [&_a]:gap-2 [&_a]:font-bold [&_a]:text-ink [&_a]:before:size-3 [&_a]:before:rounded-pill [&_a]:before:border-2 [&_a]:before:border-ink [&_a]:before:transition-colors [&_a]:before:duration-standard [&_a]:before:content-[''] [&_a.is-active]:before:bg-mint [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-4 ${isOpen ? "visible opacity-100" : "invisible opacity-0"}`}
         >
-          <Navigation key={openCount} onNavigate={() => setIsOpen(false)} />
+          <Navigation key={openCount} className="font-display text-4xl" onNavigate={() => setIsOpen(false)} />
         </div>
       </RemoveScroll>
 
@@ -38,10 +38,10 @@ export function MobileMenu({ ready = true }: { ready?: boolean }) {
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
         >
-          <span className="flex flex-col gap-[3px]" aria-hidden="true">
-            <span className={`${line} ${isOpen ? "translate-y-[5px] rotate-45" : ""}`} />
+          <span className="flex flex-col gap-0.75" aria-hidden="true">
+            <span className={`${line} ${isOpen ? "translate-y-1.25 rotate-45" : ""}`} />
             <span className={`${line} ${isOpen ? "scale-x-0 opacity-0" : ""}`} />
-            <span className={`${line} ${isOpen ? "-translate-y-[5px] -rotate-45" : ""}`} />
+            <span className={`${line} ${isOpen ? "-translate-y-1.25 -rotate-45" : ""}`} />
           </span>
           {isOpen ? "Fermer" : "Menu"}
         </Button>

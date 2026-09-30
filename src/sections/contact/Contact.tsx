@@ -7,7 +7,7 @@ export function Contact() {
     <section id="contact">
       <ContactInfo />
       <OrderForm />
-      <Wave />
+      <Wave compact Wave="#1E3A3C" UpWave="#F2F1EE" BotWave="#FBE3D6" />
     </section>
   );
 }
