@@ -43,7 +43,7 @@ export function LegalPage({ page = "cgv" }: LegalPageProps) {
             <p className="mb-3 font-display text-[0.65rem] uppercase tracking-[0.16em] sm:mb-5 sm:text-[0.68rem]">
               Informations légales
             </p>
-            <h1 className="max-w-5xl break-words font-display text-[clamp(2rem,10vw,3rem)] leading-[1.05] tracking-[-0.025em] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-5xl font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
               {title}
             </h1>
             <p className="mt-3 text-xs sm:mt-4 sm:text-sm">
@@ -57,7 +57,7 @@ export function LegalPage({ page = "cgv" }: LegalPageProps) {
             <TableOfContents page={page} />
           </aside>
 
-          <div className="min-w-0 rounded-xl bg-white px-4 py-6 shadow-[0_1px_2px_rgba(30,58,60,0.03)] sm:rounded-2xl sm:px-8 sm:py-10 lg:px-14 lg:py-12">
+          <div className="rounded-2xl bg-white px-6 py-8 shadow-[0_1px_2px_rgba(30,58,60,0.03)] sm:px-10 sm:py-10 lg:px-14 lg:py-12 [&>article]:text-sm [&>article]:leading-6 [&>article>p:first-child]:mb-12 [&>article>p:first-child]:rounded-xl [&>article>p:first-child]:bg-ground [&>article>p:first-child]:px-5 [&>article>p:first-child]:py-4 [&>article>p:first-child]:text-xs [&>article_h2]:font-display [&>article_h2]:font-normal [&>article_h2]:text-xl [&>article_h2]:leading-tight">
             <Article page={page} />
           </div>
         </div>

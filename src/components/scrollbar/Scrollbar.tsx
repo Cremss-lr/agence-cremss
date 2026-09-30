@@ -7,14 +7,15 @@ const SECTIONS = [
   { id: "realisations", label: "Réalisations" },
   { id: "contact", label: "Contact" },
 ];
-const MIN_THUMB = 40;
+const MIN_THUMB = 90;
 const BORDER = 3;
 
 type ScrollbarProps = {
+  ready?: boolean;
   showSections?: boolean;
 };
 
-export function Scrollbar({ showSections = true }: ScrollbarProps) {
+export function Scrollbar({ ready = true, showSections = true }: ScrollbarProps) {
   const track = useRef<HTMLDivElement>(null);
   const thumb = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(SECTIONS[0].id);
@@ -55,9 +56,9 @@ export function Scrollbar({ showSections = true }: ScrollbarProps) {
   };
 
   return (
-    <div className="pointer-events-none fixed top-6 right-3 bottom-6 z-50 hidden items-stretch gap-4 lg:flex">
+    <div inert={!ready} className={`pointer-events-none fixed top-[19dvh] right-6 bottom-[19dvh] z-50 hidden items-stretch gap-4 transition-[opacity,translate] duration-[900ms] ease-out lg:flex ${ready ? "opacity-100" : "translate-x-6 opacity-0"}`} style={{ transitionDelay: "450ms" }}>
       {showSections && (
-        <ul className="flex flex-col items-end gap-[22px] pt-3.5">
+        <ul className="flex flex-col items-end gap-[22px] pt-4.5">
           {SECTIONS.map(({ id, label }) => (
             <li key={id} className="pointer-events-auto">
               <a
@@ -78,7 +79,7 @@ export function Scrollbar({ showSections = true }: ScrollbarProps) {
         ref={track}
         aria-hidden="true"
         onPointerDown={(e) => scrollToPointer(e.clientY)}
-        className="pointer-events-auto relative w-[18px] cursor-pointer rounded-pill border-[3px] border-ink bg-[repeating-linear-gradient(-45deg,var(--color-coral)_0_8px,var(--color-white)_8px_16px)]"
+        className="pointer-events-auto relative w-5 cursor-pointer rounded-pill border-[3px] border-ink bg-[repeating-linear-gradient(45deg,var(--color-coral)_0_12px,var(--color-white)_12px_24px)]"
       >
         <div
           ref={thumb}
@@ -87,7 +88,7 @@ export function Scrollbar({ showSections = true }: ScrollbarProps) {
             e.currentTarget.setPointerCapture(e.pointerId);
           }}
           onPointerMove={(e) => e.currentTarget.hasPointerCapture(e.pointerId) && scrollToPointer(e.clientY)}
-          className="absolute -top-[3px] -left-[6px] w-[24px] cursor-grab rounded-pill border-[3px] border-ink bg-mint active:cursor-grabbing"
+          className="absolute -top-[3px] -left-[7px] w-7 cursor-grab rounded-pill border-[3px] border-ink bg-mint active:cursor-grabbing"
         />
       </div>
     </div>
