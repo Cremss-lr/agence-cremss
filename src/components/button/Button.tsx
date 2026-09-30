@@ -2,9 +2,10 @@ import type { ButtonHTMLAttributes } from "react";
 import { Link } from "react-router";
 
 const variants = {
-  primary: "bg-mint hover:bg-mint-hover",
-  secondary: "border-2 border-ink hover:bg-ground",
-  ghost: "hover:bg-ground",
+  primary: "bg-mint text-ink hover:bg-mint-hover",
+  secondary: "border-2 border-ink text-ink hover:bg-ground",
+  ghost: "text-ink hover:bg-ground",
+  dark: "bg-ink text-ground",
 };
 
 const sizes = {
@@ -21,7 +22,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export function Button({ variant = "primary", size = "m", to, className = "", ...props }: ButtonProps) {
-  const classes = `inline-flex items-center gap-2.5 rounded-pill font-body text-ink transition-colors duration-instant focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-mint disabled:pointer-events-none disabled:opacity-40 ${variants[variant]} ${sizes[size]} ${className}`;
+  const classes = `inline-flex items-center gap-2.5 rounded-pill font-body transition-colors duration-instant focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-mint disabled:pointer-events-none disabled:opacity-40 ${variants[variant]} ${sizes[size]} ${className}`;
   if (to) return <Link to={to} className={classes}>{props.children}</Link>;
   return <button className={classes} {...props} />;
 }
