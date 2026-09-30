@@ -3,13 +3,15 @@ type WaveProps = {
   Wave?: string;
   UpWave?: string;
   BotWave?: string;
+  /** Wave only, without the tall coloured area above it. */
+  compact?: boolean;
 };
 
-export function Wave({ Wave, UpWave, BotWave }: WaveProps) {
+export function Wave({ Wave, UpWave, BotWave, compact = false }: WaveProps) {
   return (
     <div
       aria-hidden="true"
-      className="relative min-h-[clamp(20rem,55vw,25rem)] overflow-hidden"
+      className={`relative overflow-hidden ${compact ? "min-h-[clamp(4rem,8vw,6.25rem)]" : "min-h-[clamp(20rem,55vw,25rem)]"}`}
       style={{ backgroundColor: UpWave }}
     >
       <svg

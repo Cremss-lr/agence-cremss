@@ -1,9 +1,11 @@
+import { useEffect, useMemo, useState } from "react";
+
 type Section = {
   id: string;
   label: string;
 };
 
-export function TableOfContents({page=""}: {page?: string}) {
+function getSections(page: string) {
   let data: Section[] = [];
   switch (page) {
     case "MentionLegale":
@@ -51,6 +53,26 @@ export function TableOfContents({page=""}: {page?: string}) {
     default:
       break;
   }
+  return data;
+}
+
+export function TableOfContents({page=""}: {page?: string}) {
+  const data = useMemo(() => getSections(page), [page]);
+  const [active, setActive] = useState(data[0]?.id);
+
+  useEffect(() => {
+    const update = () => {
+      const current = data.filter(({ id }) => (document.getElementById(id)?.getBoundingClientRect().top ?? 1) <= innerHeight * 0.3);
+      setActive((current.at(-1) ?? data[0])?.id);
+    };
+    update();
+    addEventListener("scroll", update, { passive: true });
+    addEventListener("resize", update);
+    return () => {
+      removeEventListener("scroll", update);
+      removeEventListener("resize", update);
+    };
+  }, [data]);
 
   return (
     <nav className="w-fit">
@@ -59,7 +81,7 @@ export function TableOfContents({page=""}: {page?: string}) {
       </h2>
 
       <ul className="relative border-l border-[#203b46]">
-        {data.map((section, index) => (
+        {data.map((section) => (
           <li
             key={section.id}
             className="relative pb-5 pl-4 last:pb-0"
@@ -68,9 +90,9 @@ export function TableOfContents({page=""}: {page?: string}) {
               className={`
                 absolute -left-[5px] top-[6px]
                 h-[9px] w-[9px]
-                rounded-full border border-[#203b46]
+                rounded-full border border-[#203b46] transition-colors duration-standard
                 ${
-                  index === 0
+                  active === section.id
                     ? "bg-[#68b956]"
                     : "bg-[#f4f3f0]"
                 }

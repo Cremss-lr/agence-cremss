@@ -1,7 +1,13 @@
 import arrow from "./arrow.svg";
+import external from "./external-link.svg";
 
-const icons = { arrow };
+const icons = { arrow, external };
 
-export function Icon({ name = "arrow" }: { name?: keyof typeof icons }) {
-  return <img src={icons[name]} alt="" aria-hidden="true" className="size-6 object-none" />;
+type IconProps = {
+  name?: keyof typeof icons;
+  className?: string;
+};
+
+export function Icon({ name = "arrow", className = "size-6 object-none" }: IconProps) {
+  return <img src={icons[name]} alt="" aria-hidden="true" className={className} />;
 }
